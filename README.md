@@ -88,7 +88,7 @@ It is better to submit a challenge that meets [MVP](https://en.wikipedia.org/wik
 
 ## Stretch Problems
 
-- [ ] Add at least one test using a testing tool:
+- [x] Add at least one test using a testing tool:
 
   - [react-testing-library](https://github.com/testing-library/react-testing-library#basic-example)
   - [Cypress](https://docs.cypress.io/guides/overview/why-cypress.html)
