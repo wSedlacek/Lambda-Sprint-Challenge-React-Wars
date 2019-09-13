@@ -3,7 +3,6 @@ import { useEffect, useState } from 'react';
 
 import axios from 'axios';
 import styled from 'styled-components';
-import * as uuid from 'uuid';
 
 import Button from '@material-ui/core/Button';
 
@@ -78,7 +77,7 @@ export const App = () => {
 
       <Grid>
         {people.results.map(person => (
-          <Person character={person} key={uuid.v1()} />
+          <Person character={person} key={person.url} />
         ))}
       </Grid>
     </Root>
