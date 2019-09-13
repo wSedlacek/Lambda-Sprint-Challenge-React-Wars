@@ -26,12 +26,6 @@ export const Person = ({ character }: { character: Character }) => {
           <Typography variant='body2' color='textSecondary' component='p'>
             Mass: {character.mass} kg
           </Typography>
-          <Typography variant='body2' color='textSecondary' component='p'>
-            Eye Color: {character.eye_color}
-          </Typography>
-          <Typography variant='body2' color='textSecondary' component='p'>
-            Hair Color: {character.hair_color}
-          </Typography>
         </CardContent>
       </Card>
     </Animate>
