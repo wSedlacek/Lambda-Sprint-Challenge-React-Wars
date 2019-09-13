@@ -1,19 +1,33 @@
 import './App.scss';
 import React from 'react';
+import { useEffect, useState } from 'react';
 
-const App = () => {
-  // Try to think through what state you'll need for this app before starting. Then build out
-  // the state properties here.
+import axios from 'axios';
 
-  // Fetch characters from the star wars api in an effect hook. Remember, anytime you have a
-  // side effect in a component, you want to think about which state and/or props it should
-  // sync up with, if any.
+import { Person } from './components/person/person.component';
+
+import { Character } from './models/Character';
+import { Characters } from './models/Characters';
+
+export const App = () => {
+  const [people, setPeople] = useState<Character[]>([]);
+
+  const getPeople = (url: string) => {
+    axios.get<Characters>(url).then(response => {
+      setPeople(people => [...people, ...response.data.results]);
+      if (response.data.next) getPeople(response.data.next);
+    });
+  };
+
+  // eslint-disable-next-line
+  useEffect(() => getPeople('https://swapi.co/api/people/?page=1'), []);
 
   return (
     <div className='App'>
       <h1 className='Header'>React Wars</h1>
+      {people.map(person => (
+        <Person character={person} />
+      ))}
     </div>
   );
 };
-
-export default App;
